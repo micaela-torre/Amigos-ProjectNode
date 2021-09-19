@@ -1,17 +1,6 @@
 const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
-const Swal = require('sweetalert2')
-const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-})
+
 
 
 userControllers = {
@@ -30,10 +19,13 @@ registrar: async (req, res) => {
         await newUser.save()
         res.redirect('/ingresar')
     } catch (e) {
-        Toast.fire({
-            icon: 'success',
-            title: e.message
-        })
+        res.render('registro',{
+            title: "Ingresar-Cuenta",
+            loggedIn: req.session.loggedIn,
+            userId: req.session.userId,
+            user: req.session.user,
+            error: e.message 
+        });
     }
 },
 

@@ -10,19 +10,19 @@
                             <div class="login-space">
                                 <form action="/registro" method="POST" class="sign-up-form">
                                     <div class="group"> <label for="user" class="label">Usuario</label> <input id="user"
-                                            type="text" class="input" name="username" placeholder="Crea tu usuario">
+                                            type="text" class="input" name="username" placeholder="Crea tu usuario" required>
                                     </div>
                                     <div class="group"> <label for="pass" class="label">Contraseña</label> <input
                                             id="pass" type="password" name="password" class="input" data-type="password"
-                                            placeholder="Crea tu contraseña">
+                                            placeholder="Crea tu contraseña" required>
                                     </div>
                                     <div class="group"> <label for="pass" class="label">Email</label> <input id="pass"
-                                            type="text" class="input" name="email" placeholder="Ingresa tu email">
+                                            type="text" class="input" name="email" placeholder="Ingresa tu email" required>
                                         <p class="errorP">
-                                            <%= error %>
+                                            <%= error %> 
                                         </p>
                                     </div>
-                                    <div class="group"> <input type="submit" class="button" value="REGISTRARME">
+                                    <div class="group"> <input type="submit" onclick="" class="button" value="REGISTRARME">
                                     </div>
                                 </form>
                             </div>
@@ -32,8 +32,8 @@
             </div>
         </div>
         <div class="fondo"></div>
+    
     </div>
-
-
+        
     </header>
     <%- include('partials/footer.ejs') %>

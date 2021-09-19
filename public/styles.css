@@ -540,6 +540,34 @@ a {
   font-family: 'Questrial', sans-serif;
 }
 
+
+.contenedor::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.contenedor::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.contenedor::-webkit-scrollbar-button:increment,
+.contenedor::-webkit-scrollbar-button {
+  display: none;
+}
+
+.contenedor::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.contenedor::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.contenedor::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
 .titulo-inner {
   font-family: 'Questrial', sans-serif;
   font-weight: 600;
@@ -1214,4 +1242,20 @@ div.logueo a {
 
 div.logueo:hover {
   opacity: 1;
+}
+
+div.exito {
+  width: 20vw;
+  height: 10vh;
+  background-color: #2ed8b6;
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  border-radius: 5px;
+}
+
+div.exito p {
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 1rem;
 }
