@@ -27,6 +27,17 @@
                     <input class="inputBox" name="descripcion" placeholder="*Ingresa una breve descripción" required
                         value="<%= editar ? editar.descripcion  : ' ' %>">
                 </div>
+                <div class="group">
+                    <label class="select" for="slct">
+                        <select id="slct" name="edad" required="required">
+                            <option value="todas" disabled selected="selected">EDAD DEL AMIGO:</option>
+                            <option  value="cachorro">Cachorro (menos de 1 año)</option>
+                            <option  value="joven">Joven (1-5 años)</option>
+                            <option  value="adulto">Adulto (5-9 años)</option>
+                            <option  value="anciano">Anciano (más de 10 años) </option>
+                        </select>
+                    </label>
+                </div>
                 <input type="hidden" name="_id" value="<%= editar ? editar._id  : '' %>">
                 <input type="hidden" name="userId" value="<%= userId %>">
                 <input class="buttonBox" type="submit" value="Enviar!">

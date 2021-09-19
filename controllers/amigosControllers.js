@@ -124,7 +124,7 @@ error: (req,res) => {
     }
 },
     publicarAmigo: async (req,res) => {
-    const {nombre , email, url, ubicacion, descripcion , _id, userId} = req.body
+    const {nombre , email, url, ubicacion, descripcion , _id, userId, edad} = req.body
     var newAmigo;
     if(! _id){
         newAmigo = new Amigo ({
@@ -133,7 +133,8 @@ error: (req,res) => {
             url, 
             ubicacion, 
             descripcion,
-            userId
+            userId,
+            edad
     })
     } else {
         newAmigo = await Amigo.findOne({_id})
@@ -141,11 +142,13 @@ error: (req,res) => {
         newAmigo.email = email,
         newAmigo.url = url,
         newAmigo.ubicacion = ubicacion,
-        newAmigo.descripcion = descripcion
+        newAmigo.descripcion = descripcion,
+        newAmigo.edad = edad
     }
         try{
             await newAmigo.save()
             res.redirect('/amigos')
+            console.log(newAmigo)
         }catch{
             console.log(e)
             res.redirect('/error')
