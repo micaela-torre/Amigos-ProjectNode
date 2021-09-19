@@ -1,0 +1,58 @@
+<%- include('partials/head.ejs') %>
+    <h3 class="amigos-h3">Algunos amigos que están buscando hogar</h3>
+    <div class="wrapper">
+        <% if (!amigos) { %>
+            <h1>No hay amigos</h1>
+            <% } else { %>
+                <% amigos.forEach(amigo=> { %>
+                    <div class="card">
+                        <input type="checkbox" id="<%= amigo._id %>" class="more" aria-hidden="true">
+                        <div class="content">
+                            <div class="front" style="background-image: url('<%= amigo.url %>')">
+                                <div class="inner">
+                                    <h2>
+                                        <%= amigo.nombre %>
+                                    </h2>
+                                    <label for="<%= amigo._id %>" class="button2" aria-hidden="true">
+                                        Más info
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="inner">
+                                    <div class="titulo-inner">
+                                        <p>Hola, soy <%= amigo.nombre %> ! </p>
+                                        <img src="/assets/like.png" alt="like" width="40">
+                                    </div>
+                                    <div class="description">
+                                        <p>
+                                            <%= amigo.descripcion %>
+                                        </p>
+                                    </div>
+                                    <div class="datos">
+                                    <div>  <img src="https://i.postimg.cc/nLmdwW4q/Dise-o-sin-t-tulo-37.png" alt="correo" width="20"> <p><%= amigo.email %></p></div>
+                                    <div><img src="https://i.postimg.cc/k5DC67dq/Dise-o-sin-t-tulo-36.png" alt="ubicacion" width="20"> <p><%= amigo.ubicacion %></p></div>
+                                    </div>
+                                    <div class="botones">
+                                        <label for="<%= amigo._id %>" class="button2 return" aria-hidden="true">
+                                            <img src="/assets/flecha.png" alt="flecha" width="20">
+                                        </label>
+                                        <% if (loggedIn && userId==amigo.userId) { %>
+                                            <a href="/editar-publicacion/<%= amigo._id %>"><img
+                                                    src="https://i.postimg.cc/PxZ58k8v/Dise-o-sin-t-tulo-33.png"
+                                                    alt="flecha" width="25"></a>
+                                            <a href="/borrar-publicacion/<%= amigo._id %>"><img
+                                                    src="https://i.postimg.cc/jjK89hZm/Dise-o-sin-t-tulo-1.gif"
+                                                    alt="flecha" width="25"></a>
+                                            <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                        <% } %>
+                    </div>
+                    <p class="adoptarP">Conoce los requisitos para poder adoptar <a class="subr" href="/requisitos"> acá! </a></p>
+    </header>
+    <%- include('partials/footer.ejs') %>

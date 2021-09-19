@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <title>Amigos - <%= title %>
+    </title>
+</head>
+
+<body>
+    <header>
+        <div class="cabecera">
+            <div class="titulo-inicial">
+                <img class="logo" src="/assets/amigos.png" alt="logo"></img>
+                <p>AMIGOS</p>
+            </div>
+            <nav>
+                <a class="<%= title.includes('Inicio') ? 'active' : null %>" href="/">Inicio</a>
+                <a class="<%= title.includes('Adoptar') ? 'active' : null %>" href="/amigos">Amigos</a>
+                <a class="<%= title.includes('Ayudar') ? 'active' : null %>" href="/ayudar">Ayudar</a>
+                <% if(loggedIn){ %>
+                    <a class="<%= title.includes('Publicar') ? 'active' : null %>" href="/publicar">Publicar</a>
+                    <a class="hola">Hola <%=user %> !
+                    </a>
+                    <a href="/salir"><img class="salir" src="/assets/salir.png" alt="salir"></a>
+                    <% } %>
+                        <% if(!loggedIn){ %>
+                            <a><img src="/assets/usuario.png" alt="usuario" width="30"></a>
+                            <div class="logueo">
+                                <a href="/registro">Registrarme</a>
+                                <a href="/ingresar">Ingresar</a>
+                            </div>
+                            <% } %>
+            </nav>
+        </div>
