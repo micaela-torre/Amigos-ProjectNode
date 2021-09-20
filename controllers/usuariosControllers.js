@@ -18,13 +18,15 @@ registrar: async (req, res) => {
         if (userExist) throw new Error("El usuario ya está en uso!");
         await newUser.save()
         res.redirect('/ingresar')
+    
     } catch (e) {
         res.render('registro',{
             title: "Ingresar-Cuenta",
             loggedIn: req.session.loggedIn,
             userId: req.session.userId,
             user: req.session.user,
-            error: e.message 
+            error: e.message,
+            exito: null
         });
     }
 },
@@ -46,7 +48,8 @@ try {
             loggedIn: req.session.loggedIn,
             userId: req.session.userId,
             user: req.session.user,
-            error: e.message 
+            error: e.message ,
+            exito: null
         });
 }
 },

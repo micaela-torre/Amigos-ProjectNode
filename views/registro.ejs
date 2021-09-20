@@ -10,19 +10,23 @@
                             <div class="login-space">
                                 <form action="/registro" method="POST" class="sign-up-form">
                                     <div class="group"> <label for="user" class="label">Usuario</label> <input id="user"
-                                            type="text" class="input" name="username" placeholder="Crea tu usuario" required>
+                                            type="text" class="input" name="username" placeholder="Crea tu usuario"  >
                                     </div>
                                     <div class="group"> <label for="pass" class="label">Contraseña</label> <input
                                             id="pass" type="password" name="password" class="input" data-type="password"
-                                            placeholder="Crea tu contraseña" required>
+                                            placeholder="Crea tu contraseña"  >
                                     </div>
                                     <div class="group"> <label for="pass" class="label">Email</label> <input id="pass"
-                                            type="text" class="input" name="email" placeholder="Ingresa tu email" required>
+                                            type="text" class="input" name="email" placeholder="Ingresa tu email"  >
                                         <p class="errorP">
                                             <%= error %> 
                                         </p>
+                                        <% error = !error ? exito : error %>
                                     </div>
-                                    <div class="group"> <input type="submit" onclick="" class="button" value="REGISTRARME">
+                                    <div class="group"> <input type="submit" onclick="Swal.fire({title:'<%= error %>',  toast: true, icon: 'success',
+                                        position: 'top-end',
+                                        showConfirmButton: false,
+                                        timer: 4000,})" class="button" value="REGISTRARME">
                                     </div>
                                 </form>
                             </div>

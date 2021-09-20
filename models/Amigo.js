@@ -7,7 +7,8 @@ const amigoSchema = new mongoose.Schema({
     email: { type: String },
     ubicacion: { type: String },
     userId: { type: String },
-    edad:{type: String}
+    edad:{type: String},
+    likes: {type: Array}
 });
 const Amigo = mongoose.model("amigo", amigoSchema);
 module.exports = Amigo;

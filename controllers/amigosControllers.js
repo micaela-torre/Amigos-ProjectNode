@@ -6,11 +6,11 @@ const amigosControllers = {
             title: "Inicio",
             loggedIn: req.session.loggedIn,
             user: req.session.user,
-            error: null
+            error: null,
         })
     } catch(e){
         console.log(e)
-        res.redirect('error')
+        res.redirect('/error')
     }
     },
     ayudar: (req,res) => {
@@ -23,7 +23,7 @@ const amigosControllers = {
             })
         } catch(e){
             console.log(e)
-            res.redirect('error')
+            res.redirect('/error')
         }
         },
         requisitos: (req,res) => {
@@ -36,7 +36,7 @@ const amigosControllers = {
                 })
             } catch(e){
                 console.log(e)
-                res.redirect('error')
+                res.redirect('/error')
             }
             },
     registro: (req,res) => {
@@ -47,7 +47,8 @@ const amigosControllers = {
                 loggedIn: req.session.loggedIn,
                 userId: req.session.userId,
                 user: req.session.user,
-                error: null
+                error: null,
+                exito: "Cuenta creada con éxito!"
             })
         } else {
             res.redirect('/error')
@@ -65,7 +66,8 @@ ingreso: (req,res) => {
                 loggedIn: req.session.loggedIn,
                 userId: req.session.userId,
                 user: req.session.user,
-                error: null
+                error: null,
+                exito: "Bienvenido!"
             })
         } else {
             res.redirect('/error')
@@ -148,7 +150,6 @@ error: (req,res) => {
         try{
             await newAmigo.save()
             res.redirect('/amigos')
-            console.log(newAmigo)
         }catch{
             console.log(e)
             res.redirect('/error')
